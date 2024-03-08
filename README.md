@@ -1,2 +1,2 @@
 # EasyPOS
-A project by ASCTE Cyberpatriot
+A project by Justin Wright and Maxwell McCormick
