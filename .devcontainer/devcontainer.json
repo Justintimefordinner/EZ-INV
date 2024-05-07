@@ -1,6 +1,6 @@
 // devcontainer.json
 {
-  "name": "Python Flask App",
+  "name": "EZ-INV",
   "dockerFile": "Dockerfile",
   "forwardPorts": [8080],
   "settings": { 
