@@ -1,0 +1,16 @@
+# compose-dev.yaml
+version: '3'
+services:
+  app:
+    build: 
+      context: .
+      dockerfile: Dockerfile
+    init: true
+    volumes:
+      - .:/app
+      - type: bind
+        source: /var/run/docker.sock
+        target: /var/run/docker.sock
+    ports:
+      - 8080:8080
+    command: ["./venv/bin/python", "-m", "flask", "run", "--host=0.0.0.0", "--port=8080"]
