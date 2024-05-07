@@ -1,5 +1,5 @@
 # syntax=docker/dockerfile:1.4
-FROM --platform=$BUILDPLATFORM python:3.10-alpine AS builder
+FROM --platform=$BUILDPLATFORM python:3.12.2-alpine3.14 AS builder
 
 WORKDIR /app
 
@@ -16,9 +16,12 @@ CMD ["app/main.py"]
 FROM builder as dev-envs
 
 RUN apk update && \
-    apk add git && \
+    apk add --no-cache git && \
     addgroup -S docker && \
     adduser -S --shell /bin/bash --ingroup docker vscode
 
 # install Docker tools (cli, buildx, compose)
 COPY --from=gloursdocker/docker / /
+
+# Switch to non-root user
+USER vscode
