@@ -1,0 +1,18 @@
+// devcontainer.json
+{
+  "name": "Python Flask App",
+  "dockerFile": "Dockerfile",
+  "forwardPorts": [8080],
+  "settings": { 
+    "terminal.integrated.shell.linux": "/bin/bash",
+    "python.pythonPath": "/app/venv/bin/python",
+    "python.linting.enabled": true,
+    "python.linting.pylintEnabled": true,
+    "python.format.sortImports": true,
+    "python.testing.pytestArgs": ["app"],
+    "python.testing.unittestEnabled": false,
+    "python.testing.nosetestsEnabled": false,
+    "python.testing.pytestEnabled": true
+  },
+  "extensions": ["ms-python.python"]
+}
