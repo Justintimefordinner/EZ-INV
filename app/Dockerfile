@@ -3,13 +3,12 @@ FROM --platform=$BUILDPLATFORM python:3.10-alpine3.15 AS builder
 
 WORKDIR /app
 
-COPY requirements.txt /app
-RUN apk add --no-cache python3-dev py3-pip py3-venv && \
-    --mount=type=cache,target=/root/.cache/pip \
+COPY requirements.txt .
+RUN apk add --no-cache python3-dev py3-pip && \
     python -m venv venv && \
-    venv/bin/pip install -r requirements.txt
+    pip3 install -r requirements.txt
 
-COPY app/ .
+COPY . .
 
 ENTRYPOINT ["python3"]
 CMD ["main.py"]

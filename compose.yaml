@@ -3,9 +3,9 @@ version: '3.8'
 services:
   app:
     build: 
-      context: app
+      context: ./app
       target: builder
     stop_signal: SIGINT
     ports:
-      - "8000:8000"
+      - '5000:8080'
     command: ["./venv/bin/python", "-m", "flask", "run", "--host=0.0.0.0", "--port=8080"]
